@@ -18,12 +18,16 @@ INNER JOIN track ON album.album_id = track.album_id
 GROUP BY album_name;
 
 -- Все исполнители, которые не выпустили альбомы в 2020 году
-SELECT performer_name, album_year
+SELECT performer_name
+FROM performer
+WHERE performer_name NOT IN(
+SELECT performer_name
 FROM album
 INNER JOIN genre_album ON album.album_id = genre_album.album_id
 INNER JOIN performer_ganre ON genre_album.genre_id = performer_ganre.genre_id
 INNER JOIN performer ON performer_ganre.performer_id = performer.performer_id
-WHERE album_year <> 2020
+WHERE album_year = 2020)
+
 
 --Названия сборников, в которых присутствует конкретный исполнитель ('Виктор Цой')
 SELECT collection_name, performer_name
