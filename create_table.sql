@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS performer_ganre
   	CONSTRAINT performer_ganre_pkey PRIMARY KEY (performer_id, genre_id)
 );
 
-CREATE TABLE IF NOT EXISTS genre_album
+CREATE TABLE IF NOT EXISTS performer_album
 (
-	genre_id integer REFERENCES genre(genre_id) NOT NULL,
+	performer_id integer REFERENCES performer(performer_id) NOT NULL,
   	album_id integer REFERENCES album(album_id) not NULL,
   
-  	CONSTRAINT genre_album_pkey PRIMARY KEY (genre_id, album_id)
+  	CONSTRAINT performer_album_pkey PRIMARY KEY (performer_id, album_id)
 );
 
 CREATE TABLE IF NOT EXISTS track_collection

@@ -66,10 +66,10 @@ VALUES	(1, 1),
         (8, 4),
        	(11, 4),
         (3, 4);
-INSERT INTO genre_album
+INSERT INTO performer_album
 VALUES  (1,1),
-		(1,2),
-		(2,3),
-		(3,4),
-		(3,5),
-		(2,6);
+		(2,2),
+		(3,3),
+		(4,4),
+		(5,5),
+		(6,6);

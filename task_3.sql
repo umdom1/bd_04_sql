@@ -23,11 +23,9 @@ FROM performer
 WHERE performer_name NOT IN(
 SELECT performer_name
 FROM album
-INNER JOIN genre_album ON album.album_id = genre_album.album_id
-INNER JOIN performer_ganre ON genre_album.genre_id = performer_ganre.genre_id
-INNER JOIN performer ON performer_ganre.performer_id = performer.performer_id
+INNER JOIN performer_album ON album.album_id = performer_album.album_id
+INNER JOIN performer ON performer_album.performer_id = performer.performer_id
 WHERE album_year = 2020)
-
 
 --Названия сборников, в которых присутствует конкретный исполнитель ('Виктор Цой')
 SELECT collection_name, performer_name
@@ -35,9 +33,8 @@ FROM collection
 INNER JOIN track_collection ON collection.collection_id = track_collection.collection_id
 INNER JOIN track ON track_collection.track_id = track.track_id
 INNER JOIN album ON track.album_id = album.album_id
-INNER JOIN genre_album ON album.album_id = genre_album.album_id
-INNER JOIN performer_ganre ON genre_album.genre_id = performer_ganre.genre_id
-INNER JOIN performer ON performer_ganre.performer_id = performer.performer_id
+INNER JOIN performer_album ON album.album_id = performer_album.album_id
+INNER JOIN performer ON performer_album.performer_id = performer.performer_id
 WHERE performer_name = 'Виктор Цой'
 GROUP BY performer_name, collection_name
 
